@@ -1,30 +1,35 @@
 import {PropTypes} from 'prop-types'
 export default function CarouselItem({img}) {
-  return (
-		<div className='flex items-center gap-4 w-full h-full bg-gradient-to-r from-[#F5F5F580] to-[#F5F5F580] p-10'>
-			<div className='flex flex-col items-start h-full max-w-[557px] '>
-				<p className='text-[14px] uppercase leading-[16px] mb-[10px] fot-[500] tracking-[10%] text-[#3D3D3D]'>
-					Welcome to GreenShop
-				</p>
-				<h1 className='text-[70px] font-[900] text-[#3D3D3D] leading-[70px]'>
-					Let’s Make a Better <span className='text-[#46A358]'>Planet</span>
+	return (
+		<div className='md:flex md:flex-row flex md:items-center items-center flex-col md:gap-4 gap-[3rem] w-full h-full bg-[#F0F4F8] md:p-10 p-4'>
+			<div className='flex flex-col items-start justify-center h-full max-w-[557px]'>
+
+				<h1 className='md:text-[44px] text-[32px] leading-[35px] font-[900] text-[#3D3D3D] md:leading-[48px]'>
+				Инвестируйте с повышенной доходностью до <span className='text-[#0000DE]'>19%</span> годовых
 				</h1>
-				<p className=' mt-4 mb-8 font-normal text-[14px] leading-[24px] text-[#727272]'>
-					We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban
-					Jungle. Order your favorite plants!
+
+				<p className='md:mt-4 mt-2 md:mb-8 mb-3 font-normal md:text-[18px] md:leading-[23px] text-[14px] leaading-[18px] overflow-hidden line-clamp-2'>
+				100% обеспеченность активами, прибыль каждые 3 месяца!
 				</p>
-				<button className='px-6 bg-[#46A358] h-[40px] rounded-[6px] text-[16px] leading-[20px] font-bold text-white hover:bg-[green] transition-all'>
-					SHOP NOW
-				</button>
+
+				<div className="flex gap-[1rem]">
+					<button className='md:text-[16px] text-[12px]  md:leading-[17px] leading-[13px] text-white bg-[#0000DE] md:rounded-tl-[28px] rounded-tl-[16px] md:rounded-br-[28px] rounded-br-[16px] md:w-[190px] w-[127px] md:h-[68px] h-[31px]'>
+					Инвестировать
+					</button>
+					
+					<button	className='md:text-[16px] text-[12px] md:leading-[17px] leading-[13px] text-[#0000de] bg-white rounded-tl-[28px] rounded-br-[28px] md:w-[160px] w-[120px] md:h-[68px] h-[28px]'>
+					Подробнее
+					</button>
+					</div>
 			</div>
 
-			<img className='w-full object-cover' src={img} alt='carousel-img' />
+			<img className='md:w-[433px] md:h-[437px] w-[306px] object-cover' src={img} alt='carousel-img' />
 		</div>
 	);
 }
 
 CarouselItem.propTypes = {
-  img: PropTypes.node,
+	img: PropTypes.node,
 }
 
 

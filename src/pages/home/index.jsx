@@ -1,19 +1,27 @@
 import CarouselComponent from "../../components/carousel";
 import Container from "../../components/Container";
-import AdditionalProducts from "./components/AdditionalProducts";
-import OurBlogs from "./components/OurBlogs";
-import Products from "./components/Products";
+import Barchart from "./component/Barchart";
+import Diagramm from "./component/Diagramm";
+import GridBox from "./component/GridBox";
+import SupportCard from "./component/SupportCard";
 
 function HomePage() {
-  return (
-		<Container>
-			<div className="w-full h-full flex flex-col gap-[2rem]">
-        <CarouselComponent />
-				<Products />
-				<AdditionalProducts />
-				<OurBlogs/>
+	return (
+		<div>
+			<div className="bg-[#F0F4F8]">
+			<Container>
+				<CarouselComponent />
+			</Container>
 			</div>
-		</Container>
+			<Container>
+				<GridBox />
+				<Diagramm />
+				<Barchart />
+				<SupportCard />
+			</Container>
+		
+		</div>
+		
 	);
 }
 

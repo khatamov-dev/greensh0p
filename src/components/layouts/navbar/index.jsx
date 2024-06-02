@@ -1,91 +1,45 @@
 import { Link } from "react-router-dom";
-import Logo from "../../../assets/images/Logo";
 import Container from "../../Container";
-import SearchIcon from "../../../assets/icons/SearchIcon";
-import CartIcon from "../../../assets/icons/CartIcon";
-import LogoutIcon from "../../../assets/icons/LogoutIcon";
-import { Modal } from "flowbite-react";
-import { useState } from "react";
-import Login from "../../auth/Login";
-import Register from "../../auth/Register";
+import logo from "../../../assets/images/Frame.png"
+import bars from "../../../assets/icons/List.svg"
 
 function Navbar() {
-	const [openModal, setOpenModal] = useState(false);
-	const [authType, setAuthType] = useState("login");
 	return (
-		<Container>
-			<nav className='flex  items-center  justify-between text-black h-[53px] border-b-[0.3px] border-b-[#46A35880]'>
-				<Link to='/'>
-					<Logo />
+			<nav className='flex  items-center  md:justify-between justify-around text-[#0000DE] border-b-[0.3px] md:px-[3rem] md:py-[2rem] py-[1rem] bg-[#F0F4F8]'>
+
+			<img className="md:hidden flex" src={bars} alt="" />
+				
+			<Link to='/'>
+					<img className="w-[158px] md:w-[227px]  " src={logo} alt="" />
 				</Link>
+				
 				<ul className='md:flex hidden items-center gap-8 h-full links'>
+				
 					<li>
-						<a href='#'>Home</a>
+						<a href='#'>Инвестиции</a>
 					</li>
+
 					<li>
-						<a href='#'>Shop</a>
+						<a href='#'>Рассрочка</a>
 					</li>
+
 					<li>
-						<a href='#'>Plant Care</a>
+						<a href='#'>Калькулятор</a>
 					</li>
-					<li>
-						<a href='#'>Blogs</a>
-					</li>
+
+					
 				</ul>
 
-				<div className='flex items-center gap-8'>
-					<button>
-						<SearchIcon />
+				<div className="flex gap-[1rem]">
+					<button className='md:text-[14px] text-[12px]  md:leading-[15px] leading-[13px] text-white bg-[#0000DE] md:rounded-tl-[20px] rounded-tl-[16px] md:rounded-br-[20px] rounded-br-[16px] md:w-[174px] w-[127px] md:h-[48px] h-[31px]'>
+					Личный Кабинет
 					</button>
-					<button className='relative'>
-						<CartIcon />
-						<span className='px-1 absolute h-[16px] top-[-10px] rounded-full bg-[#46A358] text-[10px] font-[500] text-white'>
-							600
-						</span>
+					
+					<button	className='md:flex items-center justify-center hidden text-[12px] md:text-[14px] md:leading-[15px] leading-[13px] text-[#0000de] bg-white rounded-tl-[20px] rounded-br-[20px] w-[160px] h-[48px]'>
+						Онлайн-заявка
 					</button>
-					<button
-						onClick={() => setOpenModal(true)}
-						className='flex items-center gap-2 bg-[#46A358] text-white h-[35px] px-4 rounded-[6px] font-[600] text-[16px] leading-[20px] transition-all hover:bg-[#2e6d3a]'
-					>
-						<LogoutIcon />
-						Login
-					</button>
-				</div>
+					</div>
 			</nav>
-			<Modal  show={openModal} size={'xl'} popup onClose={() => setOpenModal(false)}>
-				<Modal.Header />
-				<Modal.Body>
-					<div className='flex items-center gap-4 justify-center py-[2rem]'>
-						<button
-							onClick={() => setAuthType("login")}
-							className={`
-							text-[20px] leading-[16px] font-[500] 
-							${authType === "login" ? "!text-[#46A358]" : "!text-[#3D3D3D]"}
-							`}
-						>
-							Login
-						</button>
-
-						<div className='w-[1px] h-[16px] bg-[#3D3D3D]'></div>
-
-						<button
-							onClick={() => setAuthType("register")}
-							className={`
-							text-[20px] leading-[16px] font-[500]
-							${authType === "register" ? "!text-[#46A358]" : "!text-[#3D3D3D]"}
-							`}
-						>
-							Register
-						</button>
-					</div>
-
-					<div>
-						{authType === "login" && <Login />}
-						{authType === "register" && <Register />}
-					</div>
-				</Modal.Body>
-			</Modal>
-		</Container>
 	);
 }
 
